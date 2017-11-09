@@ -1,8 +1,18 @@
+/**
+ * 项目入口
+ * Created by tianrenjie on 2017/11/9
+ */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
-import registerServiceWorker from './registerServiceWorker';
+import { Provider } from 'react-redux';
+import store from './store';
+import { rootReducer } from './rootReducer';
 
-ReactDOM.render(<App />, document.getElementById('root'));
-registerServiceWorker();
+ReactDOM.render(
+  <Provider store={store}>
+    <App>
+      { rootReducer }
+    </App>
+  </Provider>
+  , document.getElementById('root'));
