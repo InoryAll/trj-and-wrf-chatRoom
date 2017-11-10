@@ -5,6 +5,7 @@
 import React, { PropTypes } from 'react';
 import { Form, Input, Button, Icon, Checkbox, Card } from 'antd';
 import { Link } from 'react-router';
+import './login.less';
 
 const FormItem = Form.Item;
 class Login extends React.Component {
@@ -23,20 +24,21 @@ class Login extends React.Component {
     const { getFieldDecorator } = this.props.form;
     return (
       <div className="login-bg">
-        <Card>
+        <h1 className="login-title">欢迎进入TRJ&&WRF在线聊天系统!</h1>
+        <Card title="登录" className="login-card">
           <Form onSubmit={this.handleSubmit} className="login-form">
             <FormItem>
               {
                 getFieldDecorator('username', {
                   rules: [{ required: true, message: '请输入你的用户名!' }],
-                })(<Input prefix={<Icon type="user" style={{ fontSize: 13 }} />} placeholder="Username" />)
+                })(<Input prefix={<Icon type="user" style={{ fontSize: 13 }} />} placeholder="请输入用户名" />)
               }
             </FormItem>
             <FormItem>
               {
                 getFieldDecorator('password', {
                   rules: [{ required: true, message: '请输入你的密码!' }],
-                })(<Input prefix={<Icon type="lock" style={{ fontSize: 13 }} />} type="password" placeholder="Password" />)
+                })(<Input prefix={<Icon type="lock" style={{ fontSize: 13 }} />} type="password" placeholder="请输入密码" />)
               }
             </FormItem>
             <FormItem>
@@ -59,4 +61,4 @@ class Login extends React.Component {
   }
 }
 
-export default Login;
+export default Form.create()(Login);

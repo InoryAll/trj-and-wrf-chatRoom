@@ -4,11 +4,12 @@
  */
 import React from 'react';
 import { browserHistory, Router, Route, IndexRoute } from 'react-router';
+import Login from './component/Login';
 
 export const router = (
   <Router history={browserHistory}>
     <Route path="/">
-      <IndexRoute />
+      <IndexRoute components={Login} />
     </Route>
   </Router>
 );
